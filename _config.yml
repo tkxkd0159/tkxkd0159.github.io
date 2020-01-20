@@ -1,12 +1,12 @@
 # Site settings
 title: JS Curriculum Vitae
-description: Jekyll Theme Minimal Resume
+description: JS Curriculum Vitae
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "localhost:3000" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 
 # User settings
 username: Jaeseung Lee
-user_description: s
+user_description: My motto is "Let's do something what I'm curious about.". so I have experience in various projects related to aviation. Recently I made unmanned Hybrid drone using Pixhawk. This drones showed decent performance on average, but sometimes It showed unstable heading because of magnetometer. So now I'm interested about decision making in uncertain(or disturbing) environment and implementation about safe auto-flight
 user_title: Software Engineer
 email: tkxkd0159@gmail.com
 

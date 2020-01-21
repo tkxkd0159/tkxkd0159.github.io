@@ -1,5 +1,5 @@
 #about {
-  font-size: 130%;
+  font-size: 120%;
 
   width: 90%;
   margin: 0 auto;
@@ -7,17 +7,21 @@
   @media only screen and (min-width: $cut) {
     width: 80%;
   }
-  svg {
+  svg{
     width: 60px !important;
     height: auto;
   }
 }
 
 .tech {
-  margin: 10px;
+  margin: 0px 20px;
   flex: 1 1 0;
   h2, h3 {
-    font-weight: 500;
+    font-weight: 600;
+  }
+  img{
+    width: 60px;
+    height: auto;
   }
 }
 

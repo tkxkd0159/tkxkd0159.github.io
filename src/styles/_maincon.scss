@@ -1,0 +1,14 @@
+#maincon {
+    font-size: 130%;
+
+    width: 90%;
+    margin: 0 auto;
+    max-width: 960px;
+    @media only screen and (min-width:$cut) {
+      width: 80%;
+    }
+    svg {
+      width: 60px !important;
+      height: auto;
+    }
+  }

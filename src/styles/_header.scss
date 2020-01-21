@@ -14,7 +14,7 @@
 }
 
 .header {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
   z-index: 1;
   text-align: center;
   color:#FFF;
@@ -127,8 +127,8 @@
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      width: 100px;
-      height: 100px;
+      width: 60px;
+      height: 60px;
       fill: #fff;
       -webkit-animation: pulse 1.3s infinite;
       animation: pulse 1.3s infinite;

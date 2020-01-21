@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   particlesJS('particles-js', {
     "particles": {
       "number": {
-        "value": 160,
+        "value": 130,
         "density": {
           "enable": true,
           "value_area": 800
@@ -35,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
         "random": true,
         "anim": {
           "enable": true,
-          "speed": 1,
+          "speed": 0.5,
           "opacity_min": 0,
           "sync": false
         }
       },
       "size": {
-        "value": 4,
+        "value": 5,
         "random": true,
         "anim": {
           "enable": false,
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       "move": {
         "enable": true,
-        "speed": 1,
+        "speed": 1.5,
         "direction": "none",
         "random": true,
         "straight": false,

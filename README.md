@@ -1,2 +1,1 @@
-# Jekyll Resume Theme
-https://github.com/murraco
+# Jekyll Resume

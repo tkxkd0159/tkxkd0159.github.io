@@ -8,10 +8,6 @@
   <!-- <meta property="og:title" content="X" />
   <meta property="og:description" content="X" /> -->
 
-
-
-
-
   <title>
     {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
   </title>
@@ -33,7 +29,11 @@
     rel="stylesheet"
     href="{{ '/assets/css/fontawesome/fontawesome.css' | prepend: site.baseurl }}"
   />
-  <link rel="shortcut icon" type="image/png" href="{{ '/assets/shortcut.png' }}" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="{{ '/assets/shortcut.png' }}"
+  />
 
   <script
     defer
@@ -46,4 +46,9 @@
   <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="{{ '/assets/js/sweet-scroll.min.js' | prepend: site.baseurl }}"></script>
   <script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>
+  <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
 </head>

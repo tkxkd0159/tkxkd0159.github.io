@@ -45,3 +45,42 @@
   text-align: left;
   margin: 5px auto;
 }
+
+#myUpBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+  z-index: 99;
+  color: rgba(255, 0, 0, 0.7);
+  margin: 0 auto;
+  display: block;
+  font-size: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  // no borders
+  outline: 0 !important;
+  border: none !important;
+  outline-style: none !important;
+  -moz-outline-style: none !important;
+  .icon {
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -100%);
+      transform: translate(-50%, -100%);
+      width: 50px;
+      height: 50px;
+      fill: #fff;
+      -webkit-animation: pulse 2.5s infinite;
+      animation: pulse 2.5s infinite;
+      &:hover {
+        color: $sec;
+      }
+      &:active {
+        color: $sec;
+      }
+  }
+}

@@ -29,4 +29,5 @@ gem 'github-pages', group: :jekyll_plugins
 
 ### option
 you can modify and test your site in real time with `gulp watch`  
-you must run `gulp build` after revise files in `src` folder
+you must run `gulp build` after revise files in `src` folder  
+Install package.json via `npm install` if you don't want to install `devDependencies` add `--production` flag

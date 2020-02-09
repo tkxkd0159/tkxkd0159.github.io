@@ -1,7 +1,7 @@
 /* loader start */
 
 .loader-wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -11,6 +11,7 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+  z-index: 99;
 }
 .gegga {
   width: 0;

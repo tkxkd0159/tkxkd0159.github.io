@@ -86,6 +86,7 @@ function jekyll() {
 
 function watchFiles() {
   gulp.watch("src/styles/**/*.scss", gulp.parallel(jekyll, css));
+  gulp.watch("assets/css/addstyle.css", jekyll);
   gulp.watch("src/js/**/*.js", gulp.parallel(jekyll, scripts));
   gulp.watch("src/fonts/**/*.{tff,woff,woff2}", fonts);
   gulp.watch("src/img/**/*.{jpg,png,gif}", images);

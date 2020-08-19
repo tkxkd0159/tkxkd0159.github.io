@@ -16,7 +16,7 @@
 
 ## 3. Fork My Jekyll blog from github
 (1) make `Gemfile` to the root of your repo if you don't have and add these lines to `Gemfile`
-```
+```ruby
 source 'https://rubygems.org'
 gem 'github-pages', group: :jekyll_plugins
 ```
@@ -26,6 +26,13 @@ gem 'github-pages', group: :jekyll_plugins
 (1) Execute `bundle exec jekyll serve` in the root of repo  
 (2) Try `bundle update` periodically to maintain your Jekyll version up to date
 
+**When the upgrade of Gem fail even though the "bundle update" has been run**  
+RubyGems keeps old versions of gems, so feel free to do some cleaning after updating
+```ruby
+gem list
+gem outdated
+gem cleanup
+```
 
 ### option
 you can modify and test your site in real time with `gulp watch`  

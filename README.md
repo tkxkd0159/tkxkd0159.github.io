@@ -8,7 +8,7 @@
 
 ## 2. Install node.js and gulp
 (1) check `node --version`, `npm --version`, `npx --version` after install  
-(2) `npm install --global gulp-cli`  
+(2) `npm install --global gulp-cli` or `npm install --save-dev gulp-cli` 
 (3) Create package.json file if you need in your project directory : `npm init`  
 (4) Install the gulp packages in your devDependencies : `npm install --save-dev gulp`  
 (5) check `gulp --version`

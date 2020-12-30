@@ -21,6 +21,7 @@
     "gulp-uglify": "^3.0.2"
   },
   "devDependencies": {
-    "del": "^5.1.0"
+    "del": "^5.1.0",
+    "gulp-cli": "^2.3.0"
   }
 }

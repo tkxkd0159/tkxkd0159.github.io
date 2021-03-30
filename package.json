@@ -9,6 +9,7 @@
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": ">=0.21.1",
     "bl": ">=2.2.1",
     "browser-sync": "^2.26.12",
     "gulp": "^4.0.2",
@@ -16,9 +17,12 @@
     "gulp-csso": "^4.0.1",
     "gulp-imagemin": "^6.2.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-terser": "^1.2.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-sass": "^4.1.0",
+    "gulp-terser": "^1.4.1",
+    "gulp-uglify": "^3.0.2",
+    "is-svg": ">=4.2.2",
+    "socket.io": ">=2.4.0",
+    "y18n": ">=3.2.2"
   },
   "devDependencies": {
     "del": "^5.1.0",

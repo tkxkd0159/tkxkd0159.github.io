@@ -9,7 +9,7 @@
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": ">=0.21.1",
+    "axios": ">=0.21.2",
     "bl": "^5.0.0",
     "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",

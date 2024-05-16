@@ -14,4 +14,4 @@ email: tkxkd0159@gmail.com
 google-analytics:
   id: ""
 
-exclude: ['package.json', 'src' , 'node_modules']
+exclude: ['package.json', 'src' , 'node_modules', 'vendor']

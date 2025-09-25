@@ -31,14 +31,19 @@ gem outdated
 gem cleanup
 ```
 
-### Watch files
+### Gulp
+Gulp handles modern frontend tooling (SCSS compilation, JS minification, image optimization).
+SCSS supports modern CSS workflow with imports and variables.
+
+#### Install node.js and gulp
+1. Check `node --version`, `npm --version`, `npx --version` after install  
+2. `npm install --save-dev gulp-cli` 
+3. `npm install --save-dev gulp`  
+4. Check `npx gulp --version`
+
+#### Build & Watch files
 you can modify and test your site in real time with `gulp watch`.
 you must run `gulp build` after revise files in `src` folder.
 Install package.json via `npm install` if you don't want to install `devDependencies` add `--production` flag
 
-#### Install node.js and gulp
-(1) check `node --version`, `npm --version`, `npx --version` after install  
-(2) `npm install --global gulp-cli` or `npm install --save-dev gulp-cli` 
-(3) Create package.json file if you need in your project directory : `npm init`  
-(4) Install the gulp packages in your devDependencies : `npm install --save-dev gulp`  
-(5) check `gulp --version`
+

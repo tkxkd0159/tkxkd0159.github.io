@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:web": "bundle exec jekyll serve"
+    "test:web": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build",
+    "prebuild": "gulp build"
   },
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",
   "license": "MIT",
@@ -20,6 +22,7 @@
     "gulp-terser": "^2.1.0"
   },
   "devDependencies": {
-    "del": "^6.0.0"
+    "del": "^6.0.0",
+    "gulp-cli": "^3.1.0"
   }
 }

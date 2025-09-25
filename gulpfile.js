@@ -6,7 +6,7 @@ import gulpSass from "gulp-sass";
 import * as sassCompiler from "sass";
 import plumber from "gulp-plumber";
 import cp from "child_process";
-import imagemin, { gifsicle, mozjpeg, optipng } from "gulp-imagemin";
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
 import browsersync from "browser-sync";
 import del from "del";
 
@@ -65,6 +65,10 @@ function images() {
         gifsicle({ interlaced: true }),
         mozjpeg({ quality: 75, progressive: true }),
         optipng({ optimizationLevel: 5 }),
+        svgo({
+          name: "cleanupIDs",
+          active: true,
+        }),
       ])
     )
     .pipe(gulp.dest("assets/img/"));

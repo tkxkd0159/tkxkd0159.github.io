@@ -1,32 +1,35 @@
-const gulp = require("gulp");
-const csso = require("gulp-csso");
-const uglify = require("gulp-uglify");
-const terser = require("gulp-terser");
-const concat = require("gulp-concat");
-const sass = require("gulp-sass");
-const plumber = require("gulp-plumber");
-const cp = require("child_process");
-const imagemin = require("gulp-imagemin");
-const browsersync = require("browser-sync").create();
-const del = require("del");
+import gulp from "gulp";
+import csso from "gulp-csso";
+import terser from "gulp-terser";
+import concat from "gulp-concat";
+import gulpSass from "gulp-sass";
+import * as sassCompiler from "sass";
+import plumber from "gulp-plumber";
+import cp from "child_process";
+import imagemin, { gifsicle, mozjpeg, optipng, svgo } from "gulp-imagemin";
+import browsersync from "browser-sync";
+import { deleteAsync } from "del";
+
+const sass = gulpSass(sassCompiler);
+const browserSyncInstance = browsersync.create();
 
 function browserSync(done) {
-  browsersync.init({
+  browserSyncInstance.init({
     server: {
-      baseDir: "./_site/"
+      baseDir: "./_site/",
     },
-    port: 3000
+    port: 3000,
   });
   done();
 }
 
 function browserSyncReload(done) {
-  browsersync.reload();
+  browserSyncInstance.reload();
   done();
 }
 
 function clean() {
-  return del(["./_site/assets/"]);
+  return deleteAsync(["./_site/assets/"]);
 }
 
 function css() {
@@ -36,7 +39,7 @@ function css() {
     .pipe(sass())
     .pipe(csso())
     .pipe(gulp.dest("assets/css/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 
 /*
@@ -48,7 +51,7 @@ function fonts() {
     .src(["src/fonts/**/*.{ttf,woff,woff2}"])
     .pipe(plumber())
     .pipe(gulp.dest("assets/fonts/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 /*
  * Minify images
@@ -56,14 +59,8 @@ function fonts() {
 
 function images() {
   return gulp
-    .src("src/img/**/*.{jpg,png,gif}")
-    .pipe(
-      imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 })
-      ])
-    )
+    .src("src/img/**/*.{jpg,png,gif,svg}", { encoding: false })
+    .pipe(imagemin())
     .pipe(gulp.dest("assets/img/"));
 }
 /**
@@ -77,11 +74,53 @@ function scripts() {
     .pipe(concat("main.js"))
     .pipe(terser())
     .pipe(gulp.dest("assets/js/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 
 function jekyll() {
-  return cp.spawn("jekyll.bat", ["build"], { stdio: "inherit" });
+  return cp.spawn("bundle", ["exec", "jekyll", "build", "--incremental"], {
+    stdio: "inherit",
+  });
+}
+
+// Build Jekyll for CI
+function jekyllCI(done) {
+  const runCmd = (cmd, args, description) => {
+    return new Promise((resolve, reject) => {
+      console.log(description);
+      const child = cp.spawn(cmd, args, { stdio: "inherit" });
+      child.once("error", reject); // catches ENOENT / spawn failures
+      child.once("close", (code) =>
+        code === 0
+          ? resolve()
+          : reject(new Error(`${description} failed with code ${code}`))
+      );
+    });
+  };
+
+  (async () => {
+    try {
+      await runCmd(
+        "bundle",
+        ["install", "--retry", "2"],
+        "Installing dependencies..."
+      );
+      await runCmd(
+        "bundle",
+        ["config", "set", "frozen", "true"],
+        "Freezing Bundler (read-only lockfile)..."
+      );
+      await runCmd(
+        "bundle",
+        ["exec", "jekyll", "build"],
+        "Building Jekyll for production..."
+      );
+
+      done && done();
+    } catch (error) {
+      done ? done(err) : console.error(err);
+    }
+  })();
 }
 
 function watchFiles() {
@@ -96,12 +135,21 @@ function watchFiles() {
   );
 }
 
+// Default build (for local development)
 const build = gulp.series(
   clean,
-  gulp.parallel(css, images, fonts, scripts, jekyll)
+  gulp.parallel(css, images, fonts, scripts),
+  jekyll
 );
+
+// Build for GitHub Pages (reads baseurl from environment)
+const buildInCI = gulp.series(
+  clean,
+  gulp.parallel(css, images, fonts, scripts),
+  jekyllCI
+);
+
 const watch = gulp.parallel(watchFiles, browserSync);
 
-exports.build = build;
-exports.default = build;
-exports.watch = watch;
+export { build, buildInCI, watch };
+export default build;

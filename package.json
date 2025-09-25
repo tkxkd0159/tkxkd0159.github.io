@@ -2,35 +2,30 @@
   "name": "jekyll-theme-minimal-resume",
   "version": "1.0.0",
   "description": "This is a simple Jekyll theme for a minimal resume website.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:web": "bundle exec jekyll serve"
+    "test:web": "bundle exec jekyll serve",
+    "build": "gulp build",
+    "build:ci": "gulp buildInCI",
+    "start": "gulp watch"
   },
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": ">=0.25.0",
-    "bl": "^5.0.0",
-    "browser-sync": "^2.29.3",
-    "gulp": "^4.0.2",
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
-    "gulp-imagemin": "^8.0.0",
+    "gulp-imagemin": "^9.1.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-sass": "^5.1.0",
-    "gulp-terser": "^2.1.0",
-    "gulp-uglify": "^3.0.2",
-    "is-svg": ">=5.0.0",
-    "socket.io": "^4.7.2",
-    "xmlhttprequest-ssl": "^2.0.0",
-    "y18n": "^5.0.8"
+    "gulp-sass": "^6.0.1",
+    "gulp-terser": "^2.1.0"
   },
   "devDependencies": {
-    "del": "^6.0.0",
-    "gulp-cli": "^2.3.0",
-    "trim-newlines": ">=4.0.2",
-    "glob-parent": ">=6.0.2",
-    "tar": ">=6.1.11"
+    "del": "^8.0.1",
+    "gulp-cli": "^3.1.0",
+    "sass": "^1.93.2"
   }
 }

@@ -18,13 +18,8 @@ gem 'github-pages', group: :jekyll_plugins
 ## 3. Serve my local Jekyll site for development
 * Execute `bundle exec jekyll serve` in the root of repo.
 * Execute `bundle exec jekyll build` if you want to build source files instead of running the website.
+* Try `bundle update` periodically to maintain your Jekyll version up to date.
 
-
-## option
-
-### Update Ruby gems (dependencies)
-Try `bundle update` periodically to maintain your Jekyll version up to date.
-  
 **When the upgrade of Gem fail even though the "bundle update" has been run**. RubyGems keeps old versions of gems, so feel free to do some cleaning after updating.
 ```ruby
 gem list
@@ -32,16 +27,12 @@ gem outdated
 gem cleanup
 ```
 
-### Gulp
-Gulp handles modern frontend tooling (SCSS compilation, JS minification, image optimization).
-SCSS supports modern CSS workflow with imports and variables.
+## 4. Build & Watch
+```sh
+# Build src files as assets
+npm run build
 
-#### Install node.js and gulp
-1. Check `node --version`, `npm --version`, `npx --version` after install  
-2. `npm install --save-dev gulp-cli` 
-3. `npm install --save-dev gulp`  
-4. Check `npx gulp --version`
-
-#### Build & Watch files
-you can modify and test your site in real time with `gulp watch`.
-you must run `gulp build` after revise files in `src` folder.
+# Build, Watch and Run jekyll server for development
+# You can modify and test your site in real time
+npm start
+```

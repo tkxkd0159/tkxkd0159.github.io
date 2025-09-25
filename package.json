@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:web": "bundle exec jekyll serve",
-    "build": "bundle exec jekyll build",
-    "prebuild": "gulp build"
+    "build": "gulp build",
+    "start": "gulp watch"
   },
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",
   "license": "MIT",

@@ -84,7 +84,9 @@ function scripts() {
 }
 
 function jekyll() {
-  return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+  return cp.spawn("bundle", ["exec", "jekyll", "build", "--incremental"], {
+    stdio: "inherit",
+  });
 }
 
 function watchFiles() {

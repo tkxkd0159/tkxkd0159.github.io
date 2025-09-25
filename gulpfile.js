@@ -1,6 +1,5 @@
 const gulp = require("gulp");
 const csso = require("gulp-csso");
-const uglify = require("gulp-uglify");
 const terser = require("gulp-terser");
 const concat = require("gulp-concat");
 const sass = require("gulp-sass");
@@ -13,9 +12,9 @@ const del = require("del");
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: "./_site/"
+      baseDir: "./_site/",
     },
-    port: 3000
+    port: 3000,
   });
   done();
 }
@@ -61,7 +60,7 @@ function images() {
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
         imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 })
+        imagemin.optipng({ optimizationLevel: 5 }),
       ])
     )
     .pipe(gulp.dest("assets/img/"));

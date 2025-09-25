@@ -7,12 +7,13 @@
 (4) Install package via `gem install bundler`.
 
 ## 2. Install Jekyll
-(1) make `Gemfile` to the root of your repo if you don't have and add these lines to `Gemfile`.
+1. Make `Gemfile` to the root of your repo if you don't have and add these lines to `Gemfile`.
 ```ruby
 source 'https://rubygems.org'
 gem 'github-pages', group: :jekyll_plugins
 ```
-(2) Install jekyll via `bundle install`.
+2. `bundle config set path 'vendor/bundle`
+3. Install jekyll via `bundle install`.
 
 ## 3. Serve my local Jekyll site for development
 * Execute `bundle exec jekyll serve` in the root of repo.
@@ -44,6 +45,3 @@ SCSS supports modern CSS workflow with imports and variables.
 #### Build & Watch files
 you can modify and test your site in real time with `gulp watch`.
 you must run `gulp build` after revise files in `src` folder.
-Install package.json via `npm install` if you don't want to install `devDependencies` add `--production` flag
-
-

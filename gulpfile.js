@@ -1,16 +1,20 @@
-const gulp = require("gulp");
-const csso = require("gulp-csso");
-const terser = require("gulp-terser");
-const concat = require("gulp-concat");
-const sass = require("gulp-sass");
-const plumber = require("gulp-plumber");
-const cp = require("child_process");
-const imagemin = require("gulp-imagemin");
-const browsersync = require("browser-sync").create();
-const del = require("del");
+import gulp from "gulp";
+import csso from "gulp-csso";
+import terser from "gulp-terser";
+import concat from "gulp-concat";
+import gulpSass from "gulp-sass";
+import * as sassCompiler from "sass";
+import plumber from "gulp-plumber";
+import cp from "child_process";
+import imagemin, { gifsicle, mozjpeg, optipng } from "gulp-imagemin";
+import browsersync from "browser-sync";
+import del from "del";
+
+const sass = gulpSass(sassCompiler);
+const browserSyncInstance = browsersync.create();
 
 function browserSync(done) {
-  browsersync.init({
+  browserSyncInstance.init({
     server: {
       baseDir: "./_site/",
     },
@@ -20,7 +24,7 @@ function browserSync(done) {
 }
 
 function browserSyncReload(done) {
-  browsersync.reload();
+  browserSyncInstance.reload();
   done();
 }
 
@@ -35,7 +39,7 @@ function css() {
     .pipe(sass())
     .pipe(csso())
     .pipe(gulp.dest("assets/css/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 
 /*
@@ -47,7 +51,7 @@ function fonts() {
     .src(["src/fonts/**/*.{ttf,woff,woff2}"])
     .pipe(plumber())
     .pipe(gulp.dest("assets/fonts/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 /*
  * Minify images
@@ -58,9 +62,9 @@ function images() {
     .src("src/img/**/*.{jpg,png,gif}")
     .pipe(
       imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
+        gifsicle({ interlaced: true }),
+        mozjpeg({ quality: 75, progressive: true }),
+        optipng({ optimizationLevel: 5 }),
       ])
     )
     .pipe(gulp.dest("assets/img/"));
@@ -76,11 +80,11 @@ function scripts() {
     .pipe(concat("main.js"))
     .pipe(terser())
     .pipe(gulp.dest("assets/js/"))
-    .pipe(browsersync.stream());
+    .pipe(browserSyncInstance.stream());
 }
 
 function jekyll() {
-  return cp.spawn("jekyll.bat", ["build"], { stdio: "inherit" });
+  return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
 }
 
 function watchFiles() {
@@ -101,6 +105,5 @@ const build = gulp.series(
 );
 const watch = gulp.parallel(watchFiles, browserSync);
 
-exports.build = build;
-exports.default = build;
-exports.watch = watch;
+export { build, watch };
+export default build;

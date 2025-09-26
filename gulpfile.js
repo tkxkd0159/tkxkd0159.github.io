@@ -93,6 +93,35 @@ function jekyll() {
   });
 }
 
+// Build Jekyll with baseurl from environment variable (for GitHub Actions)
+function jekyllCI(done) {
+  const baseurl = process.env.GITHUB_PAGES_BASE_PATH;
+
+  if (!baseurl) {
+    const error = new Error(
+      "GITHUB_PAGES_BASE_PATH environment variable is required for jekyllBuild task"
+    );
+    console.error("Error:", error.message);
+    done(error);
+    return;
+  }
+
+  const args = ["exec", "jekyll", "build", "--baseurl", baseurl];
+  console.log(`Building Jekyll with baseurl: ${baseurl}`);
+
+  const child = cp.spawn("bundle", args, {
+    stdio: "inherit",
+  });
+
+  child.on("close", (code) => {
+    if (code !== 0) {
+      done(new Error(`Jekyll build failed with code ${code}`));
+    } else {
+      done();
+    }
+  });
+}
+
 function watchFiles() {
   gulp.watch("src/styles/**/*.scss", gulp.parallel(jekyll, css));
   gulp.watch("assets/css/addstyle.css", jekyll);
@@ -105,11 +134,19 @@ function watchFiles() {
   );
 }
 
+// Default build (for local development)
 const build = gulp.series(
   clean,
   gulp.parallel(css, images, fonts, scripts, jekyll)
 );
+
+// Build for GitHub Pages (reads baseurl from environment)
+const buildInCI = gulp.series(
+  clean,
+  gulp.parallel(css, images, fonts, scripts, jekyllCI)
+);
+
 const watch = gulp.parallel(watchFiles, browserSync);
 
-export { build, watch };
+export { build, buildInCI, watch };
 export default build;

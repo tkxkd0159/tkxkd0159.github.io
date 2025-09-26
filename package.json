@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:web": "bundle exec jekyll serve",
     "build": "gulp build",
+    "build:ci": "gulp buildInCI",
     "start": "gulp watch"
   },
   "author": "Mauricio Urraco <mauriurraco@gmail.com>",

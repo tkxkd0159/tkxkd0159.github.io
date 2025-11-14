@@ -6,12 +6,11 @@ url: tkxkd0159.github.io/ # the base hostname & protocol for your site e.g. http
 
 # User settings
 username: Jaeseung Lee
-user_description: Dynamic Software Engineer with 5 years of experience building scalable, high-performance systems and optimizing data infrastructure. While specialized in Go, Rust, and Kubernetes, I quickly adapt to new technologies and am eager to leverage Java and other languages as needed. Experienced in leading teams to deliver resilient cloud platforms and secure blockchain platform, with a strong focus on automation, performance, and continuous improvement to solve complex business challenges.
-user_title: Software Engineer
+user_description: Senior Software Engineer with deep experience building large-scale distributed systems, cloud-native platforms, and high-throughput data infrastructure. Designed and operated mission-critical services across Kubernetes, OpenStack, and blockchain networks, including fully managed DB platforms, high-performance consensus engines, and cross-chain asset bridges. Strong track record of eliminating systemic bottlenecks (e.g., reducing O(N²) controller operations to O(1)), hardening platform reliability, and delivering scalable automation for thousands of clusters. Polyglot engineer with primary expertise in Go but proven ability to ramp quickly on any stack, including Java-based ecosystems. Consistently trusted for ownership, architectural clarity, and delivering resilient systems under real operational constraints.
 email: tkxkd0159@gmail.com
 
 # Google-analytics
 google-analytics:
   id: ""
 
-exclude: [package.json, src, node_modules, vendor]
+exclude: [ package.json, src, node_modules, vendor ]

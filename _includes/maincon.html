@@ -24,12 +24,45 @@
 
 <p><strong>LINE</strong> Full-time worker, 01/03/2022 ~ present</p>
 <ul>
-  <li>Design & Manage LINE Blockchain Mainnet (LBM)</li>
-  <li>Develop the LBM and its corresponding ecosystem</li>
-  <li>Optimized performance of LBM ecosystem (P2P network, IAVL+DB, Data Processing, gRPC, WASM)</li>
-  <li>Consensus Engine Design and Implementation</li>
-  <li>CI/CD pipeline (Github Action, Docker, Static Linking)</li>
-  <li>Developing Rollup(Off-chain Scaling) - VM, Batcher</li>
+  <li>
+    <strong>Flava DBS</strong> (Go, Python): Spearheaded the end-to-end development of a fully managed MongoDB service, leading the team in architecting a decoupled control-plane (Kubernetes) and data-plane (OpenStack) platform. Designed a sophisticated three-layered Kubernetes CRD (Custom Resource Definition) architecture to abstract and automate complex database cluster lifecycle management. Contributed as a core team member to the development of managed Redis and OpenSearch services, ensuring all products adhered to a high-cohesion, low-coupling microservice design.
+    <ul>
+      <li><strong>Controller Optimization:</strong> Designed sub-reconcile ownership model and adopted Server-Side Apply to our controllers. $O(N^2)$ requests arising from legacy update way were reduced to $O(1)$. Optimized informer cache scope based on controller logic to reduce load on the kube-apiserver and etcd, mitigating risks of cascading failures.</li>
+      <li><strong>Client Optimization:</strong> Implemented a 2Q caching mechanism to optimize connection pool management across thousands of database clusters, overcoming file descriptor and network resource constraints to achieve high efficiency, stability, and scalability under heavy load.</li>
+      <li><strong>Programmatic DB Operation:</strong> Spearheaded the modernization of the controller admin workflow, replacing manual CLI usage by developing a Go API adapter for fully automated, error-resistant database operations. This critical backend component manages thousands of DB clusters and is directly responsible for sustaining a 99.9% uptime service level agreement (SLA).</li>
+      <li><strong>Online Certificate Status Protocol:</strong> Transitioning from TLS termination to a zero-trust security model; identified and resolved OCSP verification issues for revoked certificates in collaboration with the internal network team.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>CI/CD:</strong> Managing a scalable GitHub Action runner set using Action Runner Controller on Kubernetes, enabling on-demand, customizable runners. Managing a dedicated ArgoCD cluster for multi-region, declarative continuous deployment. Adopted ephemeral container-based DB cluster for efficient version-based integration test.
+  </li>
+  <li>
+    <strong>AI Literacy:</strong> Served as an in-house AI instructor, providing practical prompt engineering guidance across research, writing, coding, analysis, and daily workflows. Demonstrated parallel AI agent operations without context switching using git worktree.
+  </li>
+  <li>
+    <strong>Common:</strong> Enhanced application performance by 20% through Automatic Feedback-Directed Optimization (AutoFDO) leveraging real-world profiling data. Adopted trunk-based development with an optimized backporting strategy to accelerate release cycles and streamline deployments.
+  </li>
+  <li>
+    <strong>Ostracon</strong> (Go): Tendermint BFT-based consensus engine for Finschia. Implemented fair block proposer selection using VRF (Verifiable Random Function) and add mempool query to observe uncommitted changes from distributed node perspective.
+  </li>
+  <li>
+    <strong>Finschia</strong> (Go, Rust): LINE Blockchain mainnet core. Developed a token/collection module to allow users to easily place their business domains on the blockchain. Implemented secure smart contract execution environment based on the WebAssembly VM and actor model with FFI. Adopted Inter-Blockchain Communication Protocol (IBC) to enable secure, trustless data exchange across mainnets with independent consensus mechanisms. Designed a certificate-free verification process using trusted setup and merkle proofs, contributed bug fixes to IBC Relayer and core modules, identified mainnet integration side effects, and developed a soft-landing deployment strategy.
+  </li>
+  <li>
+    <strong>Kaia Bridge</strong> (Go, Node.js): Led the development of Kaia Bridge. Designed and developed of a swap module, bridge module and relayer to enable seamless asset interoperability during the merger of LINE Finschia and Kakao Klaytn into a unified blockchain. Safely facilitated the transfer of over $194 million in digital assets with zero incidents.
+  </li>
+  <li>
+    <strong>Finschia Rollup</strong> (Go) - pilot: Developed an optimistic rollup layer tailored to the Finschia core to overcome mainnet performance limitations. Built an execution client for off-chain message processing and a sequencer, batcher for on-chain result submission. Designed and implemented canonical and settlement Chain architectures to ensure data availability and verification, and validated the design through a proof-of-concept.
+  </li>
+  <li>
+    <strong>DApp Portal KMS</strong> (Kotlin): Led the development of KMS for secure transaction signing. Implemented ES256-based JWT authentication for KMS access management and designed a hierarchical key architecture enabling secure, scalable signing for thousands of applications in a sandbox environment.
+  </li>
+  <li>
+    <strong>DApp Portal</strong> (Java): Engineered a custom N-gram tokenization index in MongoDB as an alternative to search engine, achieving sub-0.1-second search auto-completion for over 10 million records despite infrastructure (cost) constraints that prevented using powerful search engine such as Elasticsearch.
+  </li>
+  <li>
+    <strong>NextDrop</strong> (Solidity): Developed a fully on-chain, fair product sales platform using smart contracts, implementing public drops, token-gated sales, merkle proof–based tamper-proof lim.
+  </li>
 </ul>
 
 <p><strong>Korea University</strong> M.S., 2019 - 2021 </p>

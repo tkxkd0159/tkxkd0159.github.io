@@ -128,7 +128,7 @@ function watchFiles() {
   gulp.watch("assets/css/addstyle.css", jekyll);
   gulp.watch("src/js/**/*.js", gulp.parallel(jekyll, scripts));
   gulp.watch("src/fonts/**/*.{tff,woff,woff2}", fonts);
-  gulp.watch("src/img/**/*.{jpg,png,gif}", images);
+  gulp.watch("src/img/**/*.{jpg,png,gif,svg}", images);
   gulp.watch(
     ["*html", "_includes/*.html", "_layouts/*.html"],
     gulp.series(jekyll, browserSyncReload)

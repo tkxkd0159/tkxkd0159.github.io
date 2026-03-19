@@ -39,7 +39,6 @@ GEM
     ethon (0.17.0)
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
-    eventmachine (1.2.7-x64-mingw32)
     execjs (2.10.0)
     faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
@@ -50,7 +49,6 @@ GEM
     faraday-retry (2.3.2)
       faraday (~> 2.0)
     ffi (1.17.2)
-    ffi (1.17.2-x64-mingw32)
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     github-pages (232)
@@ -221,7 +219,7 @@ GEM
       gemoji (>= 3, < 5)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
-    json (2.15.0)
+    json (2.15.2.1)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -243,8 +241,6 @@ GEM
       uri
     nokogiri (1.17.2)
       mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
-    nokogiri (1.17.2-x64-mingw32)
       racc (~> 1.4)
     nokogiri (1.17.2-x86_64-linux)
       racc (~> 1.4)
@@ -284,7 +280,7 @@ GEM
 
 PLATFORMS
   ruby
-  x64-mingw32
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
